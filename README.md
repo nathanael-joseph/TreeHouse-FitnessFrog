@@ -1,2 +1,2 @@
 # TreeHouse-FitnessFrog
-TreeHouse project for learning forms/ CRUP Apps in asp MVC.
+TreeHouse project for learning forms/ CRUD Apps in asp MVC.
