@@ -97,6 +97,7 @@
     <Content Include="Content\bootstrap-datepicker3.min.css.map" />
     <None Include="Properties\PublishProfiles\fitness-frog - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\javascript.validae.bootstrap.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
