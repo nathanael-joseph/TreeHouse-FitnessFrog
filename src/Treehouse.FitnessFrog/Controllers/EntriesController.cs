@@ -107,7 +107,11 @@ namespace Treehouse.FitnessFrog.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Entry entry = _entriesRepository.GetEntry((int)id);
-            return View(entry.Id);
+            if(entry == null)
+            {
+                return HttpNotFound();
+            }
+            return View(entry);
         }
 
         [HttpPost]
