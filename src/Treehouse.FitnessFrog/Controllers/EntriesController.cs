@@ -9,7 +9,7 @@ using Treehouse.FitnessFrog.Models;
 
 namespace Treehouse.FitnessFrog.Controllers
 {
-    public class EntriesController : Controller 
+    public class EntriesController : Controller
     {
         private EntriesRepository _entriesRepository = null;
 
@@ -50,7 +50,7 @@ namespace Treehouse.FitnessFrog.Controllers
             return View(entry);
         }
 
-       
+
 
         [HttpPost]
         public ActionResult Add(Entry entry)
@@ -67,7 +67,7 @@ namespace Treehouse.FitnessFrog.Controllers
             return View(entry);
         }
 
-  
+
 
         public ActionResult Edit(int? id)
         {
@@ -76,19 +76,20 @@ namespace Treehouse.FitnessFrog.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Entry entry = _entriesRepository.GetEntry((int)id);
-            if(entry == null)
+            if (entry == null)
             {
                 return HttpNotFound();
             }
             PopulateActivitiesSelectList();
-    
+
             return View(entry);
         }
+
         [HttpPost]
         public ActionResult Edit(Entry entry)
         {
             ValidateEntry(entry);
-           if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _entriesRepository.UpdateEntry(entry);
                 return RedirectToAction("Index");
@@ -105,8 +106,15 @@ namespace Treehouse.FitnessFrog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            Entry entry = _entriesRepository.GetEntry((int)id);
+            return View(entry.Id);
+        }
 
-            return View();
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            _entriesRepository.DeleteEntry(id);
+            return RedirectToAction("Index");
         }
 
         private void ValidateEntry(Entry entry)
